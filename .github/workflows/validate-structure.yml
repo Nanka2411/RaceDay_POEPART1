@@ -1,4 +1,4 @@
-name: Validate Repository Structure
+name: Validate Race_Day Repository
 
 on:
   push:
@@ -9,31 +9,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Check docs folder
+      - name: 📁 Check docs Folder
         run: |
           if [ ! -d "docs" ]; then
-            echo "❌ ERROR: docs folder does not exist."
+            echo "❌ docs folder is missing."
             exit 1
           fi
 
           echo "✅ docs folder exists."
 
-      - name: Check required files
+      - name: 📋 Check API Endpoint Plan
         run: |
-          required_files=(
-            "docs/ERD.png"
-            "docs/API-Endpoints.png"
-            "docs/Database-Script.sql"
-          )
+          if [ ! -f "docs/API_Endpoint_Plan.pdf" ]; then
+            echo "❌ API_Endpoint_Plan.pdf is missing."
+            exit 1
+          fi
 
-          for file in "${required_files[@]}"; do
-            if [ ! -f "$file" ]; then
-              echo "❌ ERROR: Required file $file is missing."
-              exit 1
-            fi
-          done
+          echo "✅ API_Endpoint_Plan.pdf exists."
 
-          echo "✅ All required documentation files exist."
+      - name: 🔗 Check ERD Diagram
+        run: |
+          if [ ! -f "docs/ERDDIAGRAM.drawio.png" ]; then
+            echo "❌ ERDDIAGRAM.drawio.png is missing."
+            exit 1
+          fi
+
+          echo "✅ ERDDIAGRAM.drawio.png exists."
+
+      - name: 🏁 Check Race Day Documentation
+        run: |
+          if [ ! -f "docs/RACE_DAY PROG_POE1.png" ]; then
+            echo "❌ RACE_DAY PROG_POE1.png is missing."
+            exit 1
+          fi
+
+          echo "✅ RACE_DAY PROG_POE1.png exists."
+
+      - name: 🎉 Validation Complete
+        run: |
+          echo "=================================="
+          echo "✅ Race_Day repository validated!"
+          echo "✅ All required documentation exists."
+          echo "=================================="
