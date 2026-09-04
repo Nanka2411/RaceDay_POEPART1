@@ -182,7 +182,7 @@ GO
 
 
 
--- 16. Inserterion RESULT DATA
+-- 16. Inserterion of result data
 
 INSERT INTO Result
 (ResultID, EntryID, ResultTime, Position, ResultStatus)
