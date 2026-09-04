@@ -1,3 +1,5 @@
+--Initialises the Race_Day database
+
 CREATE DATABASE Race_Day;
 GO
 
