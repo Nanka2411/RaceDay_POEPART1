@@ -8,6 +8,25 @@ The system uses a relational database to store and manage race-day information a
 
 ⸻
 
+📚 Assignment Description
+
+This assignment focuses on the design and development of a Race_Day race and event management system. The system is designed to demonstrate the use of database design, relational database management, REST API development, user roles, and version control.
+
+The project requires the development of a structured database that manages race events, organisers, participants, categories, enrolments, and race results. It also includes REST API endpoints that allow users and organisers to interact with the system.
+
+The project demonstrates the ability to:
+
+* 🗄️ Design and implement a relational database.
+* 🔗 Establish relationships between database tables using Primary Keys (PKs) and Foreign Keys (FKs).
+* 🔌 Design REST API endpoints for system functionality.
+* 👥 Implement different user roles and responsibilities.
+* 📝 Manage participant enrolments in race events.
+* 🏆 Record and manage race results.
+* 🐙 Use GitHub for version control and project documentation.
+* ⚙️ Use GitHub Actions to validate the repository structure.
+
+⸻
+
 🗄️ Database
 
 The database is named:
@@ -15,8 +34,6 @@ The database is named:
 Race_Day
 
 📋 Database Tables
-
-The database contains the following tables:
 
 Table	Description
 👤 Account	Stores user account information
@@ -101,26 +118,36 @@ Method	Route	Description
 
 👥 User Roles
 
-The system supports two main user roles:
+The Race_Day system has two main user roles: Organiser and Participant.
 
 🧑‍💼 Organiser
 
+An Organiser is responsible for managing race events and overseeing participants and results.
+
 Organisers can:
 
-* 🏁 Create and manage events
-* 🏷️ Create and manage categories
-* 👥 View participants enrolled in events
-* 🏆 Record and update race results
+* 🏁 Create and manage race events.
+* 🏷️ Create and manage event categories.
+* 🔗 Associate categories with events.
+* 👥 View participants enrolled in their events.
+* 🏆 Record race results.
+* ✏️ Update race results.
+* 📋 Manage information relating to their events.
 
 🏃 Participant
 
+A Participant is a user who takes part in race events managed through the system.
+
 Participants can:
 
-* 🔎 View available events
-* 📝 Enrol in events
-* 📋 View their enrolments
-* ❌ Cancel their enrolments
-* 🏆 View race results
+* 🔎 View available race events.
+* 📋 View event details.
+* 📝 Enrol in available events.
+* 👀 View their own enrolments.
+* ❌ Cancel their enrolments.
+* 🏆 View race results.
+
+The two roles ensure that users have appropriate responsibilities within the system and that event management activities are separated from participant activities. 🔐
 
 ⸻
 
@@ -130,7 +157,27 @@ Participants can:
 * 💾 SQL
 * 🔌 REST API
 * 🐙 GitHub
+* ⚙️ GitHub Actions
 
+⸻
+
+⚙️ Continuous Integration (CI)
+
+GitHub Actions is used as part of the project’s Continuous Integration (CI) process.
+
+The CI workflow automatically checks that the required project documentation files are present in the repository whenever changes are pushed to the main or master branches or when a pull request is created.
+
+The workflow checks for:
+
+* 📄 API_Endpoint_Plan.pdf
+* 🖼️ ERDDIAGRAM.drawio.png
+* 🗄️ RACE_DAY PROG_POE1.sql
+* 📖 README.md
+
+A successful workflow produces a green build, confirming that the required files have been found successfully. ✅
+
+🟢 Successful CI Build
+![Successful GitHub Actions Build](github-actions-success.png)
 ⸻
 
 🎯 Project Purpose
@@ -155,4 +202,3 @@ All while maintaining data integrity and organised database relationships. 🔐�
 Plan the race. 🏁
 Manage the participants. 🏃
 Track the results. 🏆
-Race_Day handles the rest. 💻🔥
