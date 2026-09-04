@@ -123,7 +123,7 @@ VALUES
 (2, 2, 'Astrid Kapinga', 'Sanlam Cape Town Marathon');
 GO
 
--- 11. Inserterion PARTICIPANT DATA
+-- 11. Inserterion of participatant data
 
 INSERT INTO Participant
 (ParticipantID, UserID, ParticipantAge)
