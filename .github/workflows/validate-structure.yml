@@ -1,16 +1,21 @@
-name: Check Documentation
+name: Validate Repository Structure
 
 on:
   push:
     branches:
       - main
-
+      - master
   pull_request:
     branches:
       - main
+      - master
+
+permissions:
+  contents: read
 
 jobs:
-  check-docs:
+  validate-structure:
+    name: Validate repository structure
     runs-on: ubuntu-latest
 
     steps:
@@ -18,23 +23,41 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check docs folder
+        shell: bash
         run: |
-          if [ ! -d "docs" ]; then
+          if [[ ! -d "docs" ]]; then
             echo "❌ docs folder is missing!"
             exit 1
           fi
 
           echo "✅ docs folder exists!"
 
-      - name: Check required files
+      - name: Check required documentation files
+        shell: bash
         run: |
-          test -f "docs/API_Endpoint_Plan.pdf"
-          test -f "docs/ERDDIAGRAM.drawio.png"
-          test -f "docs/RACE_DAY PROG_POE1.png"
+          files=(
+            "docs/API_Endpoint_Plan.pdf"
+            "docs/ERDDIAGRAM.drawio.png"
+            "docs/RACE_DAY_PROG_POE1.png"
+          )
+
+          missing=0
+
+          for file in "${files[@]}"; do
+            if [[ ! -f "$file" ]]; then
+              echo "❌ Missing: $file"
+              missing=1
+            else
+              echo "✅ Found: $file"
+            fi
+          done
+
+          if [[ "$missing" -ne 0 ]]; then
+            echo "❌ Required documentation is missing."
+            exit 1
+          fi
 
           echo "✅ All required documentation files found!"
 
       - name: Validation successful
-        run: |
-          echo "🎉 Race Day documentation validation passed!"
-    
+        run: echo "🎉 Repository structure validation passed!"
