@@ -75,7 +75,7 @@ FOREIGN KEY (CategoryID)REFERENCES Category(CategoryID)
 );
 GO
 
--- 7. ENTRY TABLE
+-- 7. Creates Entry Table
 
 CREATE TABLE Entry (
 EntryID INT PRIMARY KEY,
