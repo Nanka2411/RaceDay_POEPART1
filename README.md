@@ -181,7 +181,9 @@ A successful workflow produces a green build, confirming that the required files
 ⸻
 ## 🎥 Project Walkthrough Video
 
-[Watch my Race_Day Project Walkthrough on YouTube](https://youtu.be/yLE7oBicH00)
+[Watch my Race_Day Project Walkthrough on YouTube]
+
+(https://youtu.be/yLE7oBicH00)
 ⸻
 
 🎯 Project Purpose
