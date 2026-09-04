@@ -22,23 +22,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check docs folder
-        shell: bash
-        run: |
-          if [[ ! -d "docs" ]]; then
-            echo "❌ docs folder is missing!"
-            exit 1
-          fi
-
-          echo "✅ docs folder exists!"
-
       - name: Check required documentation files
         shell: bash
         run: |
           files=(
-            "docs/API_Endpoint_Plan.pdf"
-            "docs/ERDDIAGRAM.drawio.png"
-            "docs/RACE_DAY PROG_POE1.png"
+            "API_Endpoint_Plan.pdf"
+            "ERDDIAGRAM.drawio.png"
+            "RACE_DAY PROG_POE1.png"
+            "README.md"
           )
 
           missing=0
@@ -53,11 +44,11 @@ jobs:
           done
 
           if [[ "$missing" -ne 0 ]]; then
-            echo "❌ Required documentation is missing."
+            echo "❌ Required files are missing."
             exit 1
           fi
 
-          echo "✅ All required documentation files found!"
+          echo "✅ All required files found!"
 
       - name: Validation successful
         run: echo "🎉 Repository structure validation passed!"
