@@ -1,56 +1,40 @@
-name: Validate Race_Day Repository
+name: Check Documentation
 
 on:
   push:
+    branches:
+      - main
+
   pull_request:
+    branches:
+      - main
 
 jobs:
-  validate-structure:
+  check-docs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 📁 Check docs Folder
+      - name: Check docs folder
         run: |
           if [ ! -d "docs" ]; then
-            echo "❌ docs folder is missing."
+            echo "❌ docs folder is missing!"
             exit 1
           fi
 
-          echo "✅ docs folder exists."
+          echo "✅ docs folder exists!"
 
-      - name: 📋 Check API Endpoint Plan
+      - name: Check required files
         run: |
-          if [ ! -f "docs/API_Endpoint_Plan.pdf" ]; then
-            echo "❌ API_Endpoint_Plan.pdf is missing."
-            exit 1
-          fi
+          test -f "docs/API_Endpoint_Plan.pdf"
+          test -f "docs/ERDDIAGRAM.drawio.png"
+          test -f "docs/RACE_DAY PROG_POE1.png"
 
-          echo "✅ API_Endpoint_Plan.pdf exists."
+          echo "✅ All required documentation files found!"
 
-      - name: 🔗 Check ERD Diagram
+      - name: Validation successful
         run: |
-          if [ ! -f "docs/ERDDIAGRAM.drawio.png" ]; then
-            echo "❌ ERDDIAGRAM.drawio.png is missing."
-            exit 1
-          fi
-
-          echo "✅ ERDDIAGRAM.drawio.png exists."
-
-      - name: 🏁 Check Race Day Documentation
-        run: |
-          if [ ! -f "docs/RACE_DAY PROG_POE1.png" ]; then
-            echo "❌ RACE_DAY PROG_POE1.png is missing."
-            exit 1
-          fi
-
-          echo "✅ RACE_DAY PROG_POE1.png exists."
-
-      - name: 🎉 Validation Complete
-        run: |
-          echo "=================================="
-          echo "✅ Race_Day repository validated!"
-          echo "✅ All required documentation exists."
-          echo "=================================="
+          echo "🎉 Race Day documentation validation passed!"
+    
