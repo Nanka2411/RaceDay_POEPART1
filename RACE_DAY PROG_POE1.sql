@@ -31,7 +31,7 @@ FOREIGN KEY (UserID) REFERENCES Account(UserID)
 );
 GO
 
--- 3. PARTICIPANT TABLE
+-- 3. Creates Partcicpant Table
 
 CREATE TABLE Participant (
 ParticipantID INT PRIMARY KEY,
