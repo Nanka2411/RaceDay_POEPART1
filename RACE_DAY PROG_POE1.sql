@@ -64,7 +64,7 @@ CategoryDescription VARCHAR(150) NOT NULL
 );
 GO
 
--- 6. EVENT CATEGORY TABLE
+-- 6. Creates event category table
 
 CREATE TABLE EventCategory (
  EventID INT NOT NULL,
