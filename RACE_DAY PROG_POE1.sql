@@ -156,7 +156,7 @@ VALUES
 (5,'7km Charity Walk','7 kilometre charity walking category');
 GO
 
--- 14. Inserterion EVENT CATEGORY DATA
+-- 14. Inserterion of entry category data
 
 INSERT INTO EventCategory
 (EventID, CategoryID)
