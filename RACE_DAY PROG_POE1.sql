@@ -55,7 +55,7 @@ FOREIGN KEY (OrganiserID) REFERENCES Organiser(OrganiserID)
 );
 GO
 
--- 5. CATEGORY TABLE
+-- 5. Creates Category Table
 
 CREATE TABLE Category (
 CategoryID INT PRIMARY KEY,
