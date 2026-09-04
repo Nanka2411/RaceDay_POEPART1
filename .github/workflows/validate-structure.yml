@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+
   pull_request:
     branches:
       - main
@@ -28,7 +29,7 @@ jobs:
           files=(
             "API_Endpoint_Plan.pdf"
             "ERDDIAGRAM.drawio.png"
-            "RACE_DAY PROG_POE1.png"
+            "RACE_DAY PROG_POE1.sql"
             "README.md"
           )
 
@@ -52,3 +53,4 @@ jobs:
 
       - name: Validation successful
         run: echo "🎉 Repository structure validation passed!"
+         
