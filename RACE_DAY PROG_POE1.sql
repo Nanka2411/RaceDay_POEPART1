@@ -91,7 +91,7 @@ UNIQUE (ParticipantID, EventID)
  );
 GO
 
--- 8. RESULT TABLE
+-- 8. Creates result table
 
 CREATE TABLE Result (
  ResultID INT PRIMARY KEY,
@@ -103,7 +103,7 @@ CREATE TABLE Result (
  );
 GO
 
--- 9. ACCOUNT DATA
+-- 9. Inserterion of account data
 
 INSERT INTO Account
 (UserID, FirstName, LastName, Email, PasswordHash, Phone, UserRole)
