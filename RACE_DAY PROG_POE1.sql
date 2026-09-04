@@ -132,7 +132,7 @@ VALUES
 (2, 4, 29);
 GO
 
--- 12. Inserterion EVENT DATA
+-- 12. Inserterion of event data
 
 INSERT INTO Event
 (EventID, EventName, EventDescription, EventDate,
