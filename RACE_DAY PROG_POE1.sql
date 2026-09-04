@@ -144,7 +144,7 @@ VALUES
 (4,'Stellenbosch Charity Walk','Fundraising walk supporting local community projects','2026-12-12','Stellenbosch','7km vineyard and town route',2);
 GO
 
--- 13. Inserterion CATEGORY DATA
+-- 13. Inserterion of category data
 
 INSERT INTO Category
 (CategoryID, CategoryName, CategoryDescription)
