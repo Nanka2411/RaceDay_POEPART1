@@ -114,7 +114,7 @@ VALUES
 (4, 'Nikita', 'Johnson','NikitaJohnson25@gmail.com','hashedpassword4','0641238906','Participant');
 GO
 
--- 10. ORGANISER DATA
+-- 10.Inserterion ORGANISER DATA
 
 INSERT INTO Organiser
 (OrganiserID, UserID, OrganiserName, OrganisationName)
