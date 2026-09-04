@@ -20,7 +20,7 @@ CreatedDate DATETIME NOT NULL DEFAULT GETDATE()
 );
 GO
 
--- 2. ORGANISER TABLE
+-- 2. Creates Organiser Table
 
 CREATE TABLE Organiser (
 OrganiserID INT PRIMARY KEY,
