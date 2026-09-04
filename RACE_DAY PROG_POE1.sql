@@ -6,7 +6,7 @@ GO
 USE Race_Day;
 GO
 
--- 1. ACCOUNT TABLE
+-- 1. Creates Account Table
 
 CREATE TABLE Account (
 UserID INT PRIMARY KEY,
