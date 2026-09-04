@@ -41,7 +41,7 @@ FOREIGN KEY (UserID) REFERENCES Account(UserID)
 );
 GO
 
--- 4. EVENT TABLE
+-- 4. Creates Event Table
 
 CREATE TABLE Event (
 EventID INT PRIMARY KEY,
