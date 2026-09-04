@@ -38,7 +38,7 @@ jobs:
           files=(
             "docs/API_Endpoint_Plan.pdf"
             "docs/ERDDIAGRAM.drawio.png"
-            "docs/RACE_DAY_PROG_POE1.png"
+            "docs/RACE_DAY PROG_POE1.png"
           )
 
           missing=0
