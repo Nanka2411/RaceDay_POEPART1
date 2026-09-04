@@ -169,7 +169,7 @@ VALUES
 GO
 
 
--- 15. Inserterion ENTRY DATA
+-- 15. Inserterion of entry data
 
 INSERT INTO Entry
 (EntryID, ParticipantID, EventID, EntryDate, EntryStatus)
