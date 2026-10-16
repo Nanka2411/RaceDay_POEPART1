@@ -10,38 +10,40 @@ The system uses a relational database to store and manage race-day information a
 
 📚 Assignment Description
 
-This assignment focuses on the design and development of a Race_Day race and event management system. The system demonstrates database design, relational database management, REST API development, user roles, and version control.
+This assignment focuses on the design and development of a Race_Day race and event management system. The system is designed to demonstrate the use of database design, relational database management, REST API development, user roles, and version control.
 
-The project requires a structured database to manage race events, organisers, participants, categories, enrolments, and race results. It also includes REST API endpoints that allow users and organisers to interact with the system.
+The project requires the development of a structured database that manages race events, organisers, participants, categories, enrolments, and race results. It also includes REST API endpoints that allow users and organisers to interact with the system.
 
-🎯 Project Demonstrates
+The project demonstrates the ability to:
 
-* 🗄️ Design and implementation of a relational database.
-* 🔗 Relationships between database tables using Primary Keys (PKs) and Foreign Keys (FKs).
-* 🔌 REST API endpoint design.
-* 👥 Different user roles and responsibilities.
-* 📝 Participant enrolments in race events.
-* 🏆 Recording and managing race results.
-* 🐙 GitHub version control and project documentation.
-* ⚙️ GitHub Actions repository validation.
+* 🗄️ Design and implement a relational database.
+* 🔗 Establish relationships between database tables using Primary Keys (PKs) and Foreign Keys (FKs).
+* 🔌 Design REST API endpoints for system functionality.
+* 👥 Implement different user roles and responsibilities.
+* 📝 Manage participant enrolments in race events.
+* 🏆 Record and manage race results.
+* 🐙 Use GitHub for version control and project documentation.
+* ⚙️ Use GitHub Actions to validate the repository structure.
 
 ⸻
 
 🗄️ Database
 
-The database is named Race_Day.
+The database is named:
+
+Race_Day
 
 📋 Database Tables
 
 Table	Description
-Account	Stores user account information
-Organiser	Stores information about event organisers
-Participant	Stores information about race participants
-Event	Stores race and event information
-Category	Stores available event categories
-EventCategory	Links events with their available categories
-Entry	Stores participant enrolments in events
-Result	Stores participant race results
+👤 Account	Stores user account information
+🧑‍💼 Organiser	Stores information about event organisers
+🏃 Participant	Stores information about race participants
+🏁 Event	Stores race and event information
+🏷️ Category	Stores available event categories
+🔗 EventCategory	Links events with their available categories
+📝 Entry	Stores participant enrolments in events
+🏆 Result	Stores participant race results
 
 🔗 Database Relationships
 
@@ -65,54 +67,52 @@ The Race_Day system provides REST API endpoints for managing accounts, profiles,
 🔐 Authentication
 
 Method	Route	Description
-POST	/api/auth/register	Registers a new user account
-POST	/api/auth/login	Authenticates a registered user
+🟢 POST	/api/auth/register	Registers a new user account
+🟢 POST	/api/auth/login	Authenticates a registered user
 
 👤 Profile
 
 Method	Route	Description
-GET	/api/profile	Retrieves the logged-in user’s profile
-PUT	/api/profile	Updates the logged-in user’s profile
+🔵 GET	/api/profile	Retrieves the logged-in user’s profile
+🟡 PUT	/api/profile	Updates the logged-in user’s profile
 
 🏁 Events
 
 Method	Route	Description
-GET	/api/events	Retrieves all available events
-GET	/api/events/{id}	Retrieves details of a specific event
-POST	/api/events	Creates a new event
-PUT	/api/events/{id}	Updates an existing event
-DELETE	/api/events/{id}	Deletes an existing event
+🔵 GET	/api/events	Retrieves all available events
+🔵 GET	/api/events/{id}	Retrieves details of a specific event
+🟢 POST	/api/events	Creates a new event
+🟡 PUT	/api/events/{id}	Updates an existing event
+🔴 DELETE	/api/events/{id}	Deletes an existing event
 
 🏷️ Categories
 
 Method	Route	Description
-GET	/api/categories	Retrieves all available categories
-GET	/api/categories/{id}	Retrieves a specific category
-POST	/api/categories	Creates a new category
+🔵 GET	/api/categories	Retrieves all available categories
+🔵 GET	/api/categories/{id}	Retrieves details of a specific category
+🟢 POST	/api/categories	Creates a new category
 
 🔗 Event Categories
 
 Method	Route	Description
-POST	/api/events/{eventId}/categories/{categoryId}	Associates a category with an event
-GET	/api/events/{eventId}/categories	Retrieves categories associated with an event
+🟢 POST	/api/events/{eventId}/categories/{categoryId}	Associates a category with an event
+🔵 GET	/api/events/{eventId}/categories	Retrieves categories associated with an event
 
 📝 Enrolments
 
 Method	Route	Description
-POST	/api/events/{eventId}/enrolments	Enrols a participant in an event
-GET	/api/events/{eventId}/enrolments	Retrieves participants enrolled in an event
-GET	/api/enrolments	Retrieves the logged-in participant’s enrolments
-DELETE	/api/events/{eventId}/enrolments	Cancels a participant’s enrolment
+🟢 POST	/api/events/{eventId}/enrolments	Enrols a participant in an event
+🔵 GET	/api/events/{eventId}/enrolments	Retrieves participants enrolled in an event
+🔵 GET	/api/enrolments	Retrieves the logged-in participant’s enrolments
+🔴 DELETE	/api/events/{eventId}/enrolments	Cancels a participant’s enrolment
 
 🏆 Results
 
 Method	Route	Description
-GET	/api/events/{eventId}/results	Retrieves results for an event
-GET	/api/results/{id}	Retrieves a specific race result
-POST	/api/entries/{entryId}/results	Records a participant’s result
-PUT	/api/results/{id}	Updates an existing result
-
-Note: These routes describe the planned API functionality. Confirm their availability against the controllers implemented in the relevant project branch.
+🔵 GET	/api/events/{eventId}/results	Retrieves results for an event
+🔵 GET	/api/results/{id}	Retrieves a specific race result
+🟢 POST	/api/entries/{entryId}/results	Records a participant’s result
+🟡 PUT	/api/results/{id}	Updates an existing result
 
 ⸻
 
@@ -136,7 +136,7 @@ Organisers can:
 
 🏃 Participant
 
-A Participant takes part in race events managed through the system.
+A Participant is a user who takes part in race events managed through the system.
 
 Participants can:
 
@@ -147,7 +147,7 @@ Participants can:
 * ❌ Cancel their enrolments.
 * 🏆 View race results.
 
-The two roles help ensure that users have appropriate responsibilities and that event management activities are separated from participant activities. 🔐
+The two roles ensure that users have appropriate responsibilities within the system and that event management activities are separated from participant activities. 🔐
 
 ⸻
 
@@ -167,7 +167,7 @@ GitHub Actions is used as part of the project’s Continuous Integration (CI) pr
 
 The CI workflow automatically checks that the required project documentation files are present in the repository whenever changes are pushed to the main or master branches or when a pull request is created.
 
-📋 Files Validated by the Workflow
+The workflow checks for:
 
 * 📄 API_Endpoint_Plan.pdf
 * 🖼️ ERDDIAGRAM.drawio.png
@@ -177,13 +177,13 @@ The CI workflow automatically checks that the required project documentation fil
 A successful workflow produces a green build, confirming that the required files have been found successfully. ✅
 
 🟢 Successful CI Build
-
+![Successful GitHub Actions Build](github-actions-success.png)
 ⸻
+## 🎥 Project Walkthrough Video
 
-🎥 Project Walkthrough Video
+[Watch my Race_Day Project Walkthrough on YouTube]
 
-Watch my Race_Day Project Walkthrough on YouTube
-
+(https://youtu.be/yLE7oBicH00)
 ⸻
 
 🎯 Project Purpose
@@ -192,16 +192,25 @@ The purpose of Race_Day is to provide a structured and reliable system for manag
 
 The system brings together:
 
-* 🏁 Events
-* 👥 Participants
-* 🧑‍💼 Organisers
-* 🏷️ Categories
-* 📝 Enrolments
-* 🏆 Race Results
+🏁 Events
+👥 Participants
+🧑‍💼 Organisers
+🏷️ Categories
+📝 Enrolments
+🏆 Race Results
 
 All while maintaining data integrity and organised database relationships. 🔐✨
 
 ⸻
+
+🚀 Race Day Ready!
+
+Plan the race. 🏁
+Manage the participants. 🏃
+Track the results. 🏆
+
+⸻
+
 🏃‍♀️🏁 Race_Day — Part 2
 
 📌 Project Overview
@@ -212,6 +221,7 @@ Part 2 develops the system further through a RESTful API built with ASP.NET Core
 
 The system aims to provide a structured way to manage race-day information while maintaining data integrity, appropriate user access, and reliable application behaviour.
 
+⸻
 🎯 Project Objectives
 
 The main objectives of Race_Day are to:
@@ -225,6 +235,8 @@ The main objectives of Race_Day are to:
 🧪 Test API behaviour using automated tests.
 🐙 Use GitHub for source control and project documentation.
 ⚙️ Use GitHub Actions to build and test the application automatically.
+⸻
+
 🏁 System Features
 
 🔐 Account Management
@@ -233,6 +245,7 @@ Register a new user account.
 Log in using registered credentials.
 Validate invalid registration and login requests.
 Support user roles for access control.
+
 🏃 Event Management
 
 Retrieve available race events.
@@ -240,6 +253,7 @@ Retrieve individual event details.
 Create race events, subject to authorisation.
 Update and delete events where permitted.
 Restrict event-management operations according to user permissions.
+⸻
 👥 User Roles
 
 Race_Day supports two main user roles: Organiser and Participant.
@@ -275,6 +289,7 @@ Participants are intended to be able to:
 Participants should not be allowed to perform organiser-only actions, such as creating events, unless explicitly permitted by the application's authorisation rules.
 
 Note: The available functionality for each role depends on the endpoints and authorisation rules implemented in the current Part 2 branch.
+⸻
 
 🛠️ Technologies Used
 
@@ -291,6 +306,7 @@ xUnit	Automated testing
 Microsoft.AspNetCore.Mvc.Testing	API integration testing
 GitHub	Source control and project hosting
 GitHub Actions	Continuous Integration
+⸻
 🗄️ Database
 
 The database for the project is named Race_Day.
@@ -328,6 +344,7 @@ Configure the database connection string according to your local SQL Server envi
 Make sure the database exists and that the application has the required permissions. If your project uses Entity Framework Core migrations, apply the required migrations before running the API.
 
 Important: Do not commit database passwords, connection-string credentials, or other secrets to GitHub.
+⸻
 
 🔌 API Endpoints
 
@@ -335,18 +352,18 @@ The following tables describe the planned API functionality. Confirm each route 
 
 🔐 Authentication
 
-
 Method	Route	Description
 POST	/api/auth/register	Registers a new user account
 POST	/api/auth/login	Authenticates a registered user
-👤 Profile
 
+
+👤 Profile
 
 Method	Route	Description
 GET	/api/profile	Retrieves the logged-in user's profile
 PUT	/api/profile	Updates the logged-in user's profile
-🏁 Events
 
+🏁 Events
 
 Method	Route	Description
 GET	/api/events	Retrieves available events
@@ -354,29 +371,29 @@ GET	/api/events/{id}	Retrieves a specific event
 POST	/api/events	Creates an event
 PUT	/api/events/{id}	Updates an event
 DELETE	/api/events/{id}	Deletes an event
-🏷️ Categories
 
+🏷️ Categories
 
 Method	Route	Description
 GET	/api/categories	Retrieves available categories
 GET	/api/categories/{id}	Retrieves a specific category
 POST	/api/categories	Creates a category
-🔗 Event Categories
 
+🔗 Event Categories
 
 Method	Route	Description
 POST	/api/events/{eventId}/categories/{categoryId}	Associates a category with an event
 GET	/api/events/{eventId}/categories	Retrieves categories associated with an event
-📝 Enrolments
 
+📝 Enrolments
 
 Method	Route	Description
 POST	/api/events/{eventId}/enrolments	Enrols a participant in an event
 GET	/api/events/{eventId}/enrolments	Retrieves enrolments for an event
 GET	/api/enrolments	Retrieves the logged-in participant's enrolments
 DELETE	/api/events/{eventId}/enrolments	Cancels an enrolment
-🏆 Results
 
+🏆 Results
 
 Method	Route	Description
 GET	/api/events/{eventId}/results	Retrieves results for an event
@@ -384,6 +401,7 @@ GET	/api/results/{id}	Retrieves a specific result
 POST	/api/entries/{entryId}/results	Records a participant's result
 PUT	/api/results/{id}	Updates a result
 Note: Only endpoints implemented in the current Part 2 branch should be considered available. Authentication requirements, HTTP status codes, and permissions depend on the implementation.
+⸻
 
 ⚙️ Installation and Setup
 
@@ -421,8 +439,6 @@ This downloads the required NuGet packages.
 4️⃣ Build the Application and Tests
 
 Run:
-
-
 dotnet build RaceDayAPI.Tests.csproj --configuration Release
 A successful build confirms that the API project and its referenced test project compile successfully.
 
@@ -438,6 +454,7 @@ The database exists or is created through your application's configured database
 Required migrations have been applied, if your project uses migrations.
 Do not publish private database credentials.
 
+⸻
 🚀 How to Run the Application
 
 1️⃣ Start the API
@@ -466,6 +483,7 @@ To register a user, send a POST request to:
 POST /api/auth/register
 The exact request body and required fields depend on the API implementation.
 
+⸻
 🧪 Automated Testing
 
 The test project uses xUnit, Microsoft.AspNetCore.Mvc.Testing, and Entity Framework Core InMemory to test selected API behaviours.
@@ -491,6 +509,7 @@ Checking participant access to event creation.
 Retrieving events that do not exist.
 Deleting events without authentication.
 The tests use an in-memory database to help isolate test data from the normal database.
+⸻
 
 🔄 Continuous Integration (CI) with GitHub Actions
 
@@ -513,25 +532,9 @@ A successful workflow run indicates that the configured build and test commands 
 
 The screenshot below should show the successful RaceDayAPI CI workflow in GitHub Actions.
 
-To add your screenshot:
+<img width="1440" height="900" alt="ci-workflow-success png" src="https://github.com/user-attachments/assets/fc872b59-c93f-45c8-a50d-ee52c02f0e58" />
 
-Open the repository on GitHub.
-Select the Actions tab.
-Open the latest successful RaceDayAPI CI run.
-Make sure the green success indicator and completed build and test steps are visible.
-Take a screenshot.
-Upload the screenshot into a folder named docs in your Part 2 branch.
-Name the image ci-workflow-success.png.
-Your repository should contain:
-
-
-docs/
-└── ci-workflow-success.png
-Once uploaded, display the screenshot here by adding the following Markdown:
-
-
-![Successful RaceDayAPI CI workflow](docs/ci-workflow-success.png)
-Important: The image will only appear once you have uploaded the actual screenshot to the specified location.
+⸻
 
 📁 Project Structure
 
@@ -547,7 +550,8 @@ EventTests.cs — event-related tests.
 UnitTest1.cs — additional event-access test.
 CustomWebApplicationFactory.cs — test host and in-memory database configuration.
 .github/workflows/ — GitHub Actions workflow files.
-The exact folder structure depends on the current repository layout.
+
+⸻
 
 🔒 Security Considerations
 
@@ -556,6 +560,9 @@ Protect restricted endpoints with authentication and role-based authorisation.
 Keep database credentials and secrets out of source control.
 Validate incoming API requests.
 Use HTTPS and secure configuration in production environments.
+
+⸻
+
 🚧 Limitations and Future Improvements
 
 Potential future improvements include:
@@ -568,15 +575,18 @@ Improving database migration and deployment procedures.
 Adding logging and monitoring for production.
 These are potential improvements and should be reviewed against the features already implemented.
 
+⸻
 🎥 Project Walkthrough Video
 
+Watch the Race_Day project walkthrough:
 
-
-
+⸻
 🐙 Repository Links
 
 GitHub Repository: 
 Part 2 Branch: 
+
+⸻
 🎯 Conclusion
 
 Race_Day combines relational database design, REST API development, account management, race-event functionality, automated testing, and Continuous Integration.
@@ -584,3 +594,21 @@ Race_Day combines relational database design, REST API development, account mana
 The project demonstrates the development and validation of a structured API solution for managing race-day activities.
 
 Plan the race. 🏁 Manage the participants. 🏃 Track the results. 🏆
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
