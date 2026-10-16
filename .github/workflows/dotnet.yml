@@ -1,3 +1,4 @@
+
 name: RaceDayAPI CI
 
 on:
@@ -21,10 +22,14 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      - name: Locate project files
+        run: |
+          find . -type f \( -name "*.csproj" -o -name "*.sln" \)
+
       - name: Restore dependencies
         run: dotnet restore RaceDayAPI.Tests.csproj
 
-      - name: Build
+      - name: Build API and tests
         run: dotnet build RaceDayAPI.Tests.csproj --configuration Release --no-restore
 
       - name: Run tests
