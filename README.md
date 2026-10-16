@@ -584,7 +584,7 @@ Watch the Race_Day project walkthrough:
 🐙 Repository Links
 
 GitHub Repository: https://github.com/Nanka2411/RaceDay_POEPART1.git
-Part 2 Branch: 
+Part 2 Branch: https://github.com/Nanka2411/RaceDay_POEPART1/tree/RaceDay_POEPART2
 
 ⸻
 🎯 Conclusion
