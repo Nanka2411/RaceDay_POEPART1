@@ -583,7 +583,7 @@ Watch the Race_Day project walkthrough:
 ⸻
 🐙 Repository Links
 
-GitHub Repository: 
+GitHub Repository: https://github.com/Nanka2411/RaceDay_POEPART1.git
 Part 2 Branch: 
 
 ⸻
