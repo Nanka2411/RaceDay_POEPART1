@@ -1,3 +1,4 @@
+
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
@@ -17,6 +18,14 @@
     <Compile Remove="AccountTests.cs" />
     <Compile Remove="EventTests.cs" />
     <Compile Remove="UnitTest1.cs" />
+    <Compile Remove="CustomWebApplicationFactory.cs" />
+    <Compile Remove="CustomWebApplicationFactory.cs.cs" />
+
+    <Compile Remove="**/AccountTests.cs" />
+    <Compile Remove="**/EventTests.cs" />
+    <Compile Remove="**/UnitTest1.cs" />
+    <Compile Remove="**/CustomWebApplicationFactory.cs" />
+    <Compile Remove="**/CustomWebApplicationFactory.cs.cs" />
   </ItemGroup>
 
 </Project>
