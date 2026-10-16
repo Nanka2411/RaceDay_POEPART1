@@ -1,0 +1,31 @@
+name: RaceDayAPI CI
+
+on:
+  push:
+    branches:
+      - RaceDay_POEPART2
+  pull_request:
+    branches:
+      - RaceDay_POEPART2
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore RaceDayAPI.Tests.csproj
+
+      - name: Build
+        run: dotnet build RaceDayAPI.Tests.csproj --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test RaceDayAPI.Tests.csproj --configuration Release --no-build --verbosity normal
