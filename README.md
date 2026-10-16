@@ -578,7 +578,7 @@ These are potential improvements and should be reviewed against the features alr
 ⸻
 🎥 Project Walkthrough Video
 
-Watch the Race_Day project walkthrough:
+Watch the Race_Day project walkthrough: https://youtu.be/lBTegCzIVco
 
 ⸻
 🐙 Repository Links
