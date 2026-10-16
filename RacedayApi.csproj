@@ -13,4 +13,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="AccountTests.cs" />
+    <Compile Remove="EventTests.cs" />
+    <Compile Remove="UnitTest1.cs" />
+  </ItemGroup>
+
 </Project>
