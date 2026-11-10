@@ -1,0 +1,488 @@
+﻿
+@{
+    ViewData["Title"] = "Welcome to RaceDay";
+}
+
+<style>
+    body {
+        background: #f4f6fa;
+    }
+
+    /* HERO SECTION */
+    .hero {
+        display: flex;
+        align-items: stretch;
+        background: #102747;
+        color: white;
+        border-radius: 18px;
+        margin-top: 30px;
+        min-height: 450px;
+        overflow: hidden;
+        box-shadow: 0 12px 30px rgba(16, 39, 71, 0.18);
+    }
+
+    .hero-content {
+        flex: 1;
+        min-width: 0;
+        padding: 60px 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: flex 0.6s ease;
+    }
+
+    .hero-label {
+        color: #f58220;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        font-weight: 900;
+        line-height: 1.15;
+        margin-bottom: 15px;
+    }
+
+    .orange {
+        color: #f58220;
+    }
+
+    .hero p {
+        font-size: 18px;
+        max-width: 550px;
+        line-height: 1.8;
+        color: #e1e9f3;
+        margin: 15px 0 25px;
+    }
+
+    .hero-highlight {
+        font-weight: bold;
+        color: white;
+        border-left: 4px solid #f58220;
+        padding-left: 14px;
+        margin-bottom: 25px;
+    }
+
+    /* HERO BUTTONS */
+    .btn-orange {
+        background: #f58220;
+        color: white;
+        padding: 13px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        margin: 7px 8px 7px 0;
+        transition: all 0.3s ease;
+    }
+
+    .btn-orange:hover {
+        background: #ff963d;
+        color: white;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(245, 130, 32, 0.35);
+    }
+
+    .btn-outline {
+        border: 2px solid white;
+        color: white;
+        padding: 11px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-block;
+        margin: 7px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+        background: white;
+        color: #102747;
+        transform: translateY(-4px);
+    }
+
+    /* HERO IMAGE - BLACK MARATHON RUNNERS */
+    .hero-image {
+        flex: 0 0 43%;
+        min-width: 0;
+        background-image:
+            linear-gradient(
+                rgba(10, 28, 52, 0.05),
+                rgba(10, 28, 52, 0.2)
+            ),
+            url("https://images.unsplash.com/photo-1530143311094-34d807799e8f");
+        background-size: cover;
+        background-position: center;
+        transition: flex-basis 0.6s ease;
+    }
+
+    .hero:hover .hero-image {
+        flex-basis: 55%;
+    }
+
+    /* SECTION INTRODUCTION */
+    .section-intro {
+        text-align: center;
+        max-width: 720px;
+        margin: 60px auto 35px;
+    }
+
+    .section-label {
+        color: #f58220;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 12px;
+    }
+
+    .section-heading {
+        color: #102747;
+        font-size: 34px;
+        font-weight: 900;
+        margin: 12px 0;
+    }
+
+    .section-description {
+        color: #657286;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .heading-line {
+        width: 65px;
+        height: 4px;
+        background: #f58220;
+        border-radius: 10px;
+        margin: 15px auto;
+    }
+
+    /* FEATURE CARDS */
+    .feature {
+        background: white;
+        border-radius: 14px;
+        overflow: hidden;
+        height: 100%;
+        box-shadow: 0 5px 18px rgba(16, 39, 71, 0.08);
+        transition: all 0.35s ease;
+        border-bottom: 4px solid transparent;
+    }
+
+    .feature:hover {
+        transform: translateY(-9px);
+        box-shadow: 0 15px 30px rgba(16, 39, 71, 0.15);
+        border-bottom-color: #f58220;
+    }
+
+    .feature-image-container {
+        overflow: hidden;
+    }
+
+    .feature img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .feature:hover img {
+        transform: scale(1.08);
+    }
+
+    .feature-content {
+        padding: 26px;
+    }
+
+    .feature-number {
+        color: #f58220;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 2px;
+    }
+
+    .feature h4 {
+        color: #102747;
+        font-weight: 800;
+        font-size: 21px;
+        margin: 12px 0;
+        transition: color 0.3s ease;
+    }
+
+    .feature:hover h4 {
+        color: #f58220;
+    }
+
+    .feature p {
+        color: #657286;
+        line-height: 1.8;
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+
+    /* FINAL MESSAGE */
+    .closing-section {
+        background: linear-gradient(120deg, #102747, #193e68);
+        color: white;
+        text-align: center;
+        padding: 50px 30px;
+        border-radius: 16px;
+        margin: 65px 0 40px;
+        box-shadow: 0 10px 25px rgba(16, 39, 71, 0.14);
+    }
+
+    .closing-section h2 {
+        font-weight: 900;
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .closing-section p {
+        color: #e1e9f3;
+        max-width: 680px;
+        margin: 0 auto 22px;
+        line-height: 1.8;
+        font-size: 16px;
+    }
+
+    .closing-tagline {
+        color: #f58220;
+        font-weight: 900;
+        font-size: 17px;
+        letter-spacing: 1px;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @@media (max-width: 768px) {
+        .hero {
+            flex-direction: column;
+        }
+
+        .hero-content {
+            padding: 45px 25px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 16px;
+        }
+
+        .hero-image {
+            flex: none;
+            width: 100%;
+            height: 260px;
+        }
+
+        .hero:hover .hero-image {
+            flex-basis: auto;
+        }
+
+        .section-heading {
+            font-size: 27px;
+        }
+
+        .closing-section h2 {
+            font-size: 25px;
+        }
+    }
+
+    /* ACCESSIBILITY */
+    @@media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            transition-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+        }
+    }
+</style>
+
+<div class="container">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                YOUR RACE. YOUR JOURNEY.
+            </div>
+
+            <h1>
+                Ready to Run?
+                <span class="orange">Let's Make Every Race Count.</span>
+            </h1>
+
+            <p>
+                Discover exciting running events, challenge yourself
+                and turn your running goals into achievements.
+                Whether you're preparing for your first race or
+                chasing a new personal best, RaceDay helps you stay
+                connected to every step of your journey.
+            </p>
+
+            <div class="hero-highlight">
+                Your next achievement could start today.
+            </div>
+
+            <div>
+                <a asp-controller="Account"
+                   asp-action="Register"
+                   class="btn-orange">
+                    Get Started
+                </a>
+
+                <a asp-controller="Account"
+                   asp-action="Login"
+                   class="btn-outline">
+                    Sign In
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-image"
+             role="img"
+             aria-label="Black runners participating in a marathon">
+        </div>
+
+    </section>
+
+    <!-- FEATURES INTRODUCTION -->
+    <section class="section-intro">
+
+        <div class="section-label">
+            EVERYTHING IN ONE PLACE
+        </div>
+
+        <h2 class="section-heading">
+            Your Running Journey Starts Here
+        </h2>
+
+        <div class="heading-line"></div>
+
+        <p class="section-description">
+            From discovering your next event to checking your race
+            results, RaceDay makes it easier to stay organised,
+            get involved and keep track of your running journey.
+        </p>
+
+    </section>
+
+    <!-- FEATURE CARDS -->
+    <div class="row g-4 my-4">
+
+        <!-- DISCOVER EVENTS -->
+        <div class="col-md-4">
+            <div class="feature">
+
+                <div class="feature-image-container">
+                    <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8"
+                         alt="Runner training outdoors" />
+                </div>
+
+                <div class="feature-content">
+
+                    <div class="feature-number">01 / DISCOVER</div>
+
+                    <h4>Find Your Next Challenge</h4>
+
+                    <p>
+                        Looking for your next running adventure?
+                        Explore upcoming events, check important
+                        details and discover races that match
+                        your interests. Your next starting line
+                        could be closer than you think.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- JOIN A RACE -->
+        <div class="col-md-4">
+            <div class="feature">
+
+                <div class="feature-image-container">
+                    <img src="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3"
+                         alt="Runners participating in a race" />
+                </div>
+
+                <div class="feature-content">
+
+                    <div class="feature-number">02 / PARTICIPATE</div>
+
+                    <h4>Take Your Place at the Starting Line</h4>
+
+                    <p>
+                        Don't just watch from the sidelines.
+                        Create your account, choose an event
+                        and enrol in races you are excited to
+                        participate in. Turn your training
+                        into action!
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- TRACK RESULTS -->
+        <div class="col-md-4">
+            <div class="feature">
+
+                <div class="feature-image-container">
+                    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b"
+                         alt="Athlete training for a sporting event" />
+                </div>
+
+                <div class="feature-content">
+
+                    <div class="feature-number">03 / ACHIEVE</div>
+
+                    <h4>Celebrate Every Achievement</h4>
+
+                    <p>
+                        Every finish line tells a story.
+                        Keep track of your race participation
+                        and results, see how you performed
+                        and celebrate the progress you make
+                        with every event.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CLOSING SECTION -->
+    <section class="closing-section">
+
+        <h2>Every Runner Has a Starting Point.</h2>
+
+        <p>
+            Whether it's your first 5 km or your next big challenge,
+            RaceDay gives you one place to discover events,
+            manage your race participation and follow your results.
+        </p>
+
+        <div class="closing-tagline">
+            FIND YOUR RACE. TAKE YOUR PLACE. MAKE IT COUNT.
+        </div>
+
+        <div class="mt-4">
+            <a asp-controller="Account"
+               asp-action="Register"
+               class="btn-orange">
+                Start Your Journey
+            </a>
+        </div>
+
+    </section>
+
+</div>
+

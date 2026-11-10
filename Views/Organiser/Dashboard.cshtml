@@ -1,0 +1,139 @@
+﻿@{
+    ViewData["Title"] = "Organiser Dashboard";
+}
+
+<style>
+    .dashboard-heading {
+        color: #102747;
+        font-weight: 800;
+    }
+
+    .dashboard-card {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        height: 100%;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+        border-left: 5px solid #f58220;
+    }
+
+        .dashboard-card h5 {
+            color: #6c757d;
+            font-size: 15px;
+        }
+
+        .dashboard-card h2 {
+            color: #102747;
+            font-weight: 800;
+        }
+
+    .dashboard-section {
+        background: #102747;
+        color: white;
+        border-radius: 12px;
+        padding: 30px;
+    }
+
+    .dashboard-label {
+        color: #f58220;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .dashboard-button {
+        background: #f58220;
+        color: white;
+        padding: 11px 22px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+    }
+
+        .dashboard-button:hover {
+            background: #df7015;
+            color: white;
+        }
+</style>
+
+<div class="container py-5">
+
+    <div class="mb-4">
+        <div class="dashboard-label">RaceDay Management</div>
+
+        <h1 class="dashboard-heading mt-2">
+            Organiser Dashboard
+        </h1>
+
+        <p class="text-muted">
+            Manage your race events, participants and results in one place.
+        </p>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <h5>Total Events</h5>
+                <h2>—</h2>
+                <p class="text-muted mb-0">Events you have created</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <h5>Total Participants</h5>
+                <h2>—</h2>
+                <p class="text-muted mb-0">Participants enrolled in your events</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <h5>Results</h5>
+                <h2>—</h2>
+                <p class="text-muted mb-0">Race results recorded</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="dashboard-section">
+
+        <div class="dashboard-label">Organiser Tools</div>
+
+        <h3 class="mt-2">Manage Your Events</h3>
+
+        <p>
+            Create, view and manage your race events and categories.
+        </p>
+
+        <a asp-controller="Organiser"
+           asp-action="Events"
+           class="dashboard-button">
+            Manage Events
+        </a>
+
+        <a asp-controller="Organiser"
+           asp-action="CreateEvent"
+           class="btn btn-outline-light ms-2">
+            + Create Event
+        </a>
+
+        <a asp-controller="Organiser"
+           asp-action="Categories"
+           class="btn btn-outline-light ms-2">
+            Manage Categories
+        </a>
+
+        <a asp-controller="Organiser"
+           asp-action="AssignCategory"
+           class="btn btn-outline-light ms-2">
+            Assign Categories
+        </a>
+
+    </div>
+
+</div>

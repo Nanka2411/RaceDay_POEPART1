@@ -1,0 +1,161 @@
+﻿@model RaceDayMVC.Models.ParticipantEventDetailsViewModel
+
+@{
+    ViewData["Title"] = "Event Details";
+}
+
+<style>
+    body {
+        background: #f4f6fa;
+    }
+
+    .details-card {
+        background: white;
+        border-radius: 14px;
+        padding: 30px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    }
+
+    .page-heading {
+        color: #102747;
+        font-weight: bold;
+    }
+
+    .event-date {
+        color: #f58220;
+        font-weight: bold;
+    }
+
+    .event-button {
+        background: #f58220;
+        color: white;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 7px;
+    }
+
+        .event-button:hover {
+            background: #d96b10;
+            color: white;
+        }
+
+    .back-link {
+        color: #102747;
+        text-decoration: none;
+    }
+</style>
+
+<div class="container py-5">
+
+    <a asp-controller="Participant"
+       asp-action="Events"
+       class="back-link">
+        &larr; Back to Events
+    </a>
+
+    <div class="details-card mt-3">
+
+        <h1 class="page-heading">@Model.Title</h1>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <p class="event-date">
+            @if (Model.EventDate.HasValue)
+            {
+                @Model.EventDate.Value.ToString("dd MMMM yyyy")
+            }
+            else
+            {
+                <span>Date to be announced</span>
+            }
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            @(string.IsNullOrWhiteSpace(Model.Location)
+                        ? "To be announced"
+                        : Model.Location)
+        </p>
+
+        <p>
+            <strong>Description:</strong>
+            @(string.IsNullOrWhiteSpace(Model.Description)
+                        ? "No description available."
+                        : Model.Description)
+        </p>
+
+        @if (!string.IsNullOrWhiteSpace(Model.Distance))
+        {
+            <p><strong>Distance:</strong> @Model.Distance</p>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.EventType))
+        {
+            <p><strong>Event type:</strong> @Model.EventType</p>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.RouteInformation))
+        {
+            <p><strong>Route information:</strong> @Model.RouteInformation</p>
+        }
+
+        <hr />
+
+        <h4 class="page-heading">Enrol for this Event</h4>
+
+        @if (Model.Categories == null || !Model.Categories.Any())
+        {
+            <div class="alert alert-info">
+                No categories are currently available for this event.
+            </div>
+        }
+        else
+        {
+            <form asp-controller="Participant"
+                  asp-action="Enrol"
+                  method="post">
+
+                <input type="hidden"
+                       name="eventId"
+                       value="@Model.EventId" />
+
+                <div class="mb-3">
+                    <label for="categoryId" class="form-label">
+                        Select your category
+                    </label>
+
+                    <select id="categoryId"
+                            name="categoryId"
+                            class="form-select"
+                            required>
+                        <option value="">Choose a category</option>
+
+                        @foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.CategoryId">
+                                @category.CategoryName
+                            </option>
+                        }
+                    </select>
+                </div>
+
+                <button type="submit" class="event-button">
+                    Enrol Now
+                </button>
+            </form>
+        }
+
+    </div>
+</div>

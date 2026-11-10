@@ -1,0 +1,94 @@
+﻿@model RaceDayMVC.Models.AssignCategoryViewModel
+
+@{
+    ViewData["Title"] = "Assign Categories";
+}
+
+<div class="container py-5">
+
+    <h1 style="color:#102747;font-weight:800;">Assign Categories</h1>
+
+    <p class="text-muted">
+        Select an event and assign a race category to it.
+    </p>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null || ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            @(TempData["ErrorMessage"] ?? ViewBag.ErrorMessage)
+        </div>
+    }
+
+    @if (Model.Events == null || !Model.Events.Any())
+    {
+        <div class="alert alert-info">
+            No events are available. Create an event first.
+        </div>
+    }
+    else if (Model.Categories == null || !Model.Categories.Any())
+    {
+        <div class="alert alert-info">
+            No categories are available. Create a category first.
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm border-0 mt-4">
+            <div class="card-body p-4">
+
+                <form asp-action="AssignCategory" method="post">
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Select Event</label>
+
+                        <select asp-for="EventID" class="form-select" required>
+                            <option value="">Choose an event</option>
+
+                            @foreach (var ev in Model.Events)
+                            {
+                                <option value="@ev.EventID">
+                                    @ev.EventName
+                                </option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Select Category</label>
+
+                        <select asp-for="CategoryID" class="form-select" required>
+                            <option value="">Choose a category</option>
+
+                            @foreach (var category in Model.Categories)
+                            {
+                                <option value="@category.CategoryID">
+                                    @category.CategoryName
+                                </option>
+                            }
+                        </select>
+                    </div>
+
+                    <button type="submit"
+                            class="btn text-white"
+                            style="background:#f58220;">
+                        Assign Category
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    }
+
+    <a asp-action="Dashboard" class="btn btn-outline-secondary mt-4">
+        Back to Dashboard
+    </a>
+
+</div>

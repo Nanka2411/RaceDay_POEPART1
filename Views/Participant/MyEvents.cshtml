@@ -1,0 +1,82 @@
+﻿@model List<RaceDayMVC.Models.ParticipantMyEventViewModel>
+
+@{
+    ViewData["Title"] = "My Events";
+}
+
+<div class="container mt-4 mb-5">
+    <h2 class="fw-bold">My Events</h2>
+    <p class="text-muted">View the events you have entered.</p>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="card shadow-sm p-4 text-center">
+            <h5>You have not entered any events yet.</h5>
+            <p class="text-muted">Browse available events to get started.</p>
+            <a asp-controller="Participant"
+               asp-action="Events"
+               class="btn btn-warning">
+                Browse Events
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover align-middle shadow-sm">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Results</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var entry in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@entry.EventName</td>
+                            <td>@entry.EventDate.ToString("dd MMM yyyy")</td>
+                            <td>@entry.EventLocation</td>
+                            <td>@entry.CategoryName</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    @entry.EntryStatus
+                                </span>
+                            </td>
+                            <td>
+                                @if (entry.ResultsPublished)
+                                {
+                                    if (!string.IsNullOrEmpty(entry.ResultTime))
+                                    {
+                                        <div>Time: @entry.ResultTime</div>
+                                        <div>Position: @(entry.Position?.ToString() ?? "N/A")</div>
+                                        <div>Status: @entry.ResultStatus</div>
+                                    }
+                                    else
+                                    {
+                                        <span>No result recorded</span>
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark">
+                                        Not published
+                                    </span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

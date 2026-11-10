@@ -1,0 +1,117 @@
+﻿@model List<RaceDayMVC.Models.ParticipantEventViewModel>
+
+@{
+    ViewData["Title"] = "Upcoming Events";
+}
+
+<style>
+    body {
+        background: #f4f6fa;
+    }
+
+    .page-heading {
+        color: #102747;
+        font-weight: bold;
+    }
+
+    .event-card {
+        border: none;
+        border-radius: 14px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        height: 100%;
+    }
+
+    .event-date {
+        color: #f58220;
+        font-weight: bold;
+    }
+
+    .event-button {
+        background: #f58220;
+        color: white;
+        border: none;
+        padding: 9px 20px;
+        border-radius: 7px;
+    }
+
+        .event-button:hover {
+            background: #d96b10;
+            color: white;
+        }
+</style>
+
+<div class="container py-5">
+
+    <h1 class="page-heading">Upcoming Events</h1>
+
+    <p class="text-muted">
+        Discover upcoming races and find your next challenge.
+    </p>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info mt-4">
+            There are currently no events available.
+        </div>
+    }
+    else
+    {
+        <div class="row g-4 mt-2">
+
+            @foreach (var raceEvent in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card event-card">
+
+                        <div class="card-body p-4">
+
+                            <h5 class="fw-bold">
+                                @raceEvent.Title
+                            </h5>
+
+                            <p class="event-date">
+                                @if (raceEvent.EventDate.HasValue)
+                                {
+                                    @raceEvent.EventDate.Value.ToString("dd MMMM yyyy")
+                                }
+                                else
+                                {
+                                    <span>Date to be announced</span>
+                                }
+                        </p>
+
+                        <p>
+                            <strong>Location:</strong>
+                            @(string.IsNullOrWhiteSpace(raceEvent.Location)
+                                                    ? "To be announced"
+                                                    : raceEvent.Location)
+                    </p>
+
+                            <p class="text-muted">
+                                @raceEvent.Description
+                            </p>
+
+                            <a asp-controller="Participant"
+                               asp-action="Details"
+                               asp-route-id="@raceEvent.EventId"
+                               class="event-button text-decoration-none d-inline-block">
+                                View Details
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                }
+
+        </div>
+    }
+
+</div>

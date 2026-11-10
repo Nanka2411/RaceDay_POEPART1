@@ -1,0 +1,367 @@
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - RaceDay</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <style>
+        body {
+            background: #f4f6fa;
+        }
+
+        .raceday-navbar {
+            background: linear-gradient(110deg, #0b1d35, #102747, #18385e);
+            padding: 15px 0;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+            position: relative;
+            z-index: 100;
+        }
+
+        .raceday-brand {
+            color: #f58220 !important;
+            font-size: 27px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: none;
+        }
+
+            .raceday-brand:hover {
+                color: #f58220 !important;
+                transform: none;
+                text-shadow: none;
+                filter: none;
+            }
+
+            .raceday-brand svg {
+                flex-shrink: 0;
+                transition: none;
+                transform: none;
+                filter: none;
+            }
+
+            .raceday-brand:hover svg {
+                transform: none;
+                filter: none;
+            }
+
+        .raceday-navbar .nav-link {
+            color: white !important;
+            margin-left: 15px;
+            font-weight: 500;
+            position: relative;
+            padding: 10px 12px !important;
+            transition: all 0.3s ease;
+        }
+
+            .raceday-navbar .nav-link::after {
+                content: "";
+                position: absolute;
+                bottom: 3px;
+                left: 50%;
+                width: 0;
+                height: 3px;
+                background: #f58220;
+                border-radius: 5px;
+                transform: translateX(-50%);
+                transition: width 0.3s ease;
+            }
+
+            .raceday-navbar .nav-link:hover {
+                color: #ffad5c !important;
+                transform: translateY(-3px);
+            }
+
+                .raceday-navbar .nav-link:hover::after {
+                    width: 75%;
+                }
+
+        .register-link {
+            background: linear-gradient(135deg, #f58220, #e66c0a);
+            border-radius: 7px;
+            padding: 9px 18px !important;
+            margin-left: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.25);
+            transition: all 0.3s ease;
+        }
+
+            .register-link::after {
+                display: none;
+            }
+
+            .register-link::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -120%;
+                width: 70%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.25);
+                transform: skewX(-25deg);
+                transition: left 0.5s ease;
+            }
+
+            .register-link:hover {
+                background: linear-gradient(135deg, #ff963d, #f58220);
+                color: white !important;
+                transform: translateY(-4px);
+                box-shadow: 0 7px 18px rgba(245, 130, 32, 0.4);
+            }
+
+                .register-link:hover::before {
+                    left: 140%;
+                }
+
+        .navbar-toggler {
+            transition: all 0.3s ease;
+        }
+
+            .navbar-toggler:hover {
+                transform: scale(1.08);
+                box-shadow: 0 0 10px rgba(245, 130, 32, 0.4);
+            }
+
+        main {
+            min-height: 75vh;
+        }
+
+        footer {
+            background: linear-gradient(110deg, #0b1d35, #102747);
+            color: white;
+            padding: 25px 0;
+            margin-top: 30px;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #f58220;
+            outline-offset: 4px;
+        }
+
+        @@media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+
+        @@media (max-width: 991px) {
+            .raceday-navbar .nav-link {
+                margin-left: 0;
+                padding: 12px !important;
+            }
+
+            .register-link {
+                display: inline-block;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    @{
+        var userRole = Context.Session.GetString("UserRole");
+    }
+
+    <header>
+        <nav class="navbar navbar-expand-lg raceday-navbar">
+            <div class="container">
+
+                <!-- RACEDAY LOGO -->
+                <a class="navbar-brand raceday-brand d-flex align-items-center"
+                   asp-controller="Home"
+                   asp-action="Index">
+
+                    <svg width="48" height="48"
+                         viewBox="0 0 100 100"
+                         xmlns="http://www.w3.org/2000/svg"
+                         class="me-2">
+
+                        <path d="M12 72 C25 48 65 48 88 72"
+                              fill="none"
+                              stroke="#f58220"
+                              stroke-width="7"
+                              stroke-linecap="round" />
+
+                        <path d="M20 83 C37 62 66 62 80 83"
+                              fill="none"
+                              stroke="white"
+                              stroke-width="4"
+                              stroke-linecap="round" />
+
+                        <circle cx="58" cy="17" r="9"
+                                fill="#f58220" />
+
+                        <path d="M55 29 L43 48 L61 57"
+                              fill="none"
+                              stroke="white"
+                              stroke-width="9"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+
+                        <path d="M49 34 L29 27 L19 38"
+                              fill="none"
+                              stroke="#f58220"
+                              stroke-width="7"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+
+                        <path d="M53 35 L73 30 L83 39"
+                              fill="none"
+                              stroke="white"
+                              stroke-width="7"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+
+                        <path d="M48 49 L29 67 L15 66"
+                              fill="none"
+                              stroke="#f58220"
+                              stroke-width="8"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+
+                        <path d="M59 56 L72 72 L88 67"
+                              fill="none"
+                              stroke="white"
+                              stroke-width="8"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                    </svg>
+
+                    <span>RaceDay</span>
+                </a>
+
+                <!-- MOBILE NAVIGATION BUTTON -->
+                <button class="navbar-toggler bg-light"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#racedayNavigation"
+                        aria-controls="racedayNavigation"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- NAVIGATION LINKS -->
+                <div class="collapse navbar-collapse"
+                     id="racedayNavigation">
+
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index">
+                                Home
+                            </a>
+                        </li>
+
+                        @if (userRole == "Participant")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Participant"
+                                   asp-action="Events">
+                                    Events
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Participant"
+                                   asp-action="MyEvents">
+                                    My Events
+                                </a>
+                            </li>
+                        }
+
+                        @if (userRole == "Organiser")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Organiser"
+                                   asp-action="Dashboard">
+                                    Dashboard
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Organiser"
+                                   asp-action="Events">
+                                    Manage Events
+                                </a>
+                            </li>
+                        }
+
+                        @if (string.IsNullOrEmpty(userRole))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Account"
+                                   asp-action="Login">
+                                    Login
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link register-link"
+                                   asp-controller="Account"
+                                   asp-action="Register">
+                                    Register
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Account"
+                                   asp-action="Logout">
+                                    Logout
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p class="mb-0">
+                &copy; 2026 RaceDay. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
+
