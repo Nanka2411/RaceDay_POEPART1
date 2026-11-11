@@ -123,6 +123,10 @@ The Race_Day system provides REST API endpoints for managing accounts, profiles,
 | 🟢 POST | `/api/entries/{entryId}/results` | Records a participant's result |
 | 🟡 PUT | `/api/results/{id}` | Updates an existing result |
 
+CI WORKLFLOW :
+<img width="1440" height="900" alt="Screenshot 2026-11-11 at 9 09 14 AM" src="https://github.com/user-attachments/assets/98ff077b-f7e1-4f7d-8586-256423c3f21f" />
+
+
 ---
 
 # 💻 Part 3 – MVC Application Development
