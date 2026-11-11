@@ -1,56 +1,38 @@
-name: Validate Repository Structure
+
+name: RaceDay Part 3 CI
 
 on:
   push:
     branches:
       - main
       - master
-
+      - POE-PART-3-FINAL
   pull_request:
     branches:
       - main
       - master
-
-permissions:
-  contents: read
+      - POE-PART-3-FINAL
 
 jobs:
-  validate-structure:
-    name: Validate repository structure
+  build:
+    name: Build RaceDay Application
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Check required documentation files
-        shell: bash
+      - name: Check Repository Files
         run: |
-          files=(
-            "API_Endpoint_Plan.pdf"
-            "ERDDIAGRAM.drawio.png"
-            "RACE_DAY PROG_POE1.sql"
-            "README.md"
-          )
+          echo "Files and folders in repository:"
+          ls -la
+          echo "Searching for project and solution files:"
+          find . -type f \( -name "*.csproj" -o -name "*.sln" -o -name "*.slnx" \)
 
-          missing=0
-
-          for file in "${files[@]}"; do
-            if [[ ! -f "$file" ]]; then
-              echo "❌ Missing: $file"
-              missing=1
-            else
-              echo "✅ Found: $file"
-            fi
-          done
-
-          if [[ "$missing" -ne 0 ]]; then
-            echo "❌ Required files are missing."
+      - name: Check C# Project Files
+        run: |
+          if ! find . -type f -name "*.csproj" | grep -q .; then
+            echo "No .csproj files found. Check that your C# project files are committed to GitHub."
             exit 1
           fi
-
-          echo "✅ All required files found!"
-
-      - name: Validation successful
-        run: echo "🎉 Repository structure validation passed!"
-         
+          echo "C# project files found."
