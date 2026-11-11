@@ -396,12 +396,11 @@ The workflow checks for:
 - 📖 `README.md`
 
 A successful workflow produces a green build, confirming that the required files have been found successfully. ✅
+<img width="1440" height="900" alt="Screenshot 2026-11-11 at 9 09 14 AM" src="https://github.com/user-attachments/assets/83a353e6-241e-4823-8fd4-5a9fcf7940cd" />
+
 
 ### 🟢 Successful CI Build
-
-[Successful GitHub Actions Build](https://github.com/Nanka2411/RaceDay_POEPART1/blob/POE-PART-3-FINAL/github-actions-success.png)
-
-[View Build Image](https://github.com/Nanka2411/RaceDay_POEPART1/raw/POE-PART-3-FINAL/github-actions-success.png)
+![Uploading Screenshot 2026-11-11 at 9.09.14 AM.png…]()
 
 ---
 
