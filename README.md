@@ -60,6 +60,13 @@ Key relationships include:
 - 📝 Each Entry can have a corresponding Result.
 - 🔗 Events and Categories are connected through the EventCategory relationship.
 
+
+---
+
+# 🎥 Project Walkthrough Video
+
+[▶️ Watch my Race_Day Project Walkthrough on YouTube](https://youtu.be/yLE7oBicH00)
+
 ---
 
 # 🔌 Part 2 – REST API Development
@@ -125,6 +132,14 @@ The Race_Day system provides REST API endpoints for managing accounts, profiles,
 
 CI WORKLFLOW :
 <img width="1440" height="900" alt="Screenshot 2026-11-11 at 9 09 14 AM" src="https://github.com/user-attachments/assets/98ff077b-f7e1-4f7d-8586-256423c3f21f" />
+
+---
+
+# 🎥 Project Walkthrough Video
+
+[▶️ Watch my Race_Day Project Walkthrough part 2 on YouTube]https://youtu.be/lBTegCzIVco
+
+---
 
 
 ---
@@ -406,13 +421,7 @@ A successful workflow produces a green build, confirming that the required files
 ### 🟢 Successful CI Build
 ![Uploading Screenshot 2026-11-11 at 9.09.14 AM.png…]()
 
----
 
-# 🎥 Project Walkthrough Video
-
-[▶️ Watch my Race_Day Project Walkthrough on YouTube](https://youtu.be/yLE7oBicH00)
-
----
 
 # 💻 Part 3 – Code Explanation Video
 
@@ -420,7 +429,9 @@ Want to see how the Race_Day application code works? 🏁
 
 Watch my Part 3 video, where I explain the code added to the project, including the controllers, ViewModels, API communication, and how the different classes contribute to the system.
 
-▶️ 
+▶️ (PART 1 OF PART 3 EXPLANATION CODE ON THE CORE CODES ADDED FOR THE PROJECT ): https://youtu.be/n_CbA3ZUtI8
+(PART 2 OF PART 3 EXPLANATION CODE ON THE CORE CODES ADDED FOR THE PROJECT ): 
+
 
 ---
 
