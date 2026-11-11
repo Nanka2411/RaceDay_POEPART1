@@ -430,6 +430,9 @@ Want to see how the Race_Day application code works? 🏁
 Watch my Part 3 video, where I explain the code added to the project, including the controllers, ViewModels, API communication, and how the different classes contribute to the system.
 
 ▶️ (PART 1 OF PART 3 EXPLANATION CODE ON THE CORE CODES ADDED FOR THE PROJECT ): https://youtu.be/n_CbA3ZUtI8
+
+
+
 (PART 2 OF PART 3 EXPLANATION CODE ON THE CORE CODES ADDED FOR THE PROJECT ): 
 
 
