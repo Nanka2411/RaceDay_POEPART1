@@ -433,7 +433,7 @@ Watch my Part 3 video, where I explain the code added to the project, including 
 
 
 
-(PART 2 OF PART 3 EXPLANATION CODE ON THE CORE CODES ADDED FOR THE PROJECT ): https://youtu.be/ohADEk2IqLk
+▶️ (Part 2 – Part 3: Website Demonstration & Explanation 🚀): https://youtu.be/ohADEk2IqLk
 
 
 ---
